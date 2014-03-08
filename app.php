@@ -1,17 +1,28 @@
 <?php
-require 'vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
-use Pux\Mux as Router;
+use Klein\Klein as Router;
+use Rss\Controller\ErrorController;
+use Rss\Controller\HomeController;
+
+$twig_path = __DIR__ . '/views';
+
+$app = array(
+    'controller.home' => new HomeController($twig_path),
+    'controller.error' => new ErrorController($twig_path),
+);
 
 
-$router = new Router;
+$router = new Router();
 
-$router->get('/',['Rss\Controller\TestController', 'testMethod']);
+$router->respond('GET', '/', function () use ($app) {
+    return $app['controller.home']->indexAction();
+});
 
-try{
-    $route = $router->dispatch($_SERVER['REQUEST_URI']);
-    echo Pux\Executor::execute($route);
-}
-catch(ReflectionException $re){
-    echo "Could not find page";
-}
+$router->respond('404', function () use ($app) {
+    return $app['controller.error']->_404();
+});
+
+
+$router->dispatch();
+

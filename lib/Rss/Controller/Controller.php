@@ -10,9 +10,9 @@ class Controller
 {
     protected $twig;
 
-    public function __construct()
+    public function __construct($twig_path)
     {
-        $loader = new \Twig_Loader_Filesystem(__DIR__ . '/../../../views');
+        $loader = new \Twig_Loader_Filesystem($twig_path);
         $this->twig = new \Twig_Environment($loader);
     }
 } 

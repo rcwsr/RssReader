@@ -3,43 +3,63 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "0a328166686abc22381a47a08609d216",
+    "hash": "2a7f07b075a54fc85b34a4de1ff298bb",
     "packages": [
         {
-            "name": "corneltek/pux",
-            "version": "1.5.0",
+            "name": "klein/klein",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/c9s/Pux.git",
-                "reference": "6bdf19d71febe4601d65489d64de1e2591ff6e44"
+                "url": "https://github.com/chriso/klein.php.git",
+                "reference": "376fd62813eb2008f3644e206d03002a3250122a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/c9s/Pux/zipball/6bdf19d71febe4601d65489d64de1e2591ff6e44",
-                "reference": "6bdf19d71febe4601d65489d64de1e2591ff6e44",
+                "url": "https://api.github.com/repos/chriso/klein.php/zipball/376fd62813eb2008f3644e206d03002a3250122a",
+                "reference": "376fd62813eb2008f3644e206d03002a3250122a",
                 "shasum": ""
             },
+            "require": {
+                "php": ">=5.3.0"
+            },
             "require-dev": {
-                "corneltek/cliframework": "dev-master",
-                "corneltek/phpunit-testmore": "dev-master",
-                "corneltek/universal": "dev-master"
+                "phpunit/php-code-coverage": "1.2.x",
+                "phpunit/phpunit": "3.7.x",
+                "squizlabs/php_codesniffer": "1.4.8"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Pux": "src"
+                    "Klein": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "authors": [
                 {
-                    "name": "c9s",
-                    "email": "cornelius.howl@gmail.com",
-                    "homepage": "http://c9s.me"
+                    "name": "Chris O'Hara",
+                    "email": "cohara87@gmail.com",
+                    "homepage": "http://chris6f.com/",
+                    "role": "Creator/Developer"
+                },
+                {
+                    "name": "Trevor Suarez",
+                    "email": "rican7@gmail.com",
+                    "homepage": "http://about.me/tnsuarez",
+                    "role": "Contributor/Developer"
                 }
             ],
-            "description": "Fast PHP router",
-            "time": "2014-02-19 10:45:14"
+            "description": "A lightning fast router for PHP",
+            "homepage": "https://github.com/chriso/klein.php",
+            "keywords": [
+                "boilerplate",
+                "router",
+                "routing",
+                "sinatra"
+            ],
+            "time": "2014-01-14 15:05:43"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -522,9 +542,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "klein/klein": 20
+    },
     "platform": [
 
     ],
