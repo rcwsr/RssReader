@@ -1,3 +1,22 @@
-{% extends "base.html" %}
+{% extends "base.html.twig" %}
 {% block content %}
+
+    <p>Add your RSS feeds below</p>
+    <form method="post">
+        <div class="row">
+            <div class="small-6 columns">
+                <div class="row collapse">
+                    <div class="small-10 columns">
+                        <input type="text" placeholder="URL">
+                    </div>
+                    <div class="small-2 columns">
+                        <a href="#" class="button postfix">Save</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <h2>My Feeds</h2>
+
+    <h2>New Feeds</h2>
 {% endblock %}

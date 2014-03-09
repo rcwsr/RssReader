@@ -9,10 +9,13 @@ namespace Rss\Controller;
 class Controller
 {
     protected $twig;
+    protected $config;
 
-    public function __construct($twig_path)
+    public function __construct($config)
     {
-        $loader = new \Twig_Loader_Filesystem($twig_path);
+        $this->config = $config;
+
+        $loader = new \Twig_Loader_Filesystem($_SERVER['DOCUMENT_ROOT'] . "/../views");
         $this->twig = new \Twig_Environment($loader);
     }
 } 

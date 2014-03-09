@@ -15,6 +15,6 @@ class HomeController extends Controller
 
     public function indexAction()
     {
-        return $this->twig->render('index.html', array('name' => 'Fabien'));
+        return $this->twig->render('index.html.twig', array('name' => 'Fabien'));
     }
 }

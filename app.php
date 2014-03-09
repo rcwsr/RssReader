@@ -5,24 +5,24 @@ use Klein\Klein as Router;
 use Rss\Controller\ErrorController;
 use Rss\Controller\HomeController;
 
-$twig_path = __DIR__ . '/views';
+//$twig_path = __DIR__ . '/views';
 
-$app = array(
-    'controller.home' => new HomeController($twig_path),
-    'controller.error' => new ErrorController($twig_path),
-);
+$config = json_decode(file_get_contents(__DIR__ . '/config/config.json'), true);
+
+
+$home_controller = new HomeController($config);
+$error_controller = new HomeController($config);
 
 
 $router = new Router();
 
-$router->respond('GET', '/', function () use ($app) {
-    return $app['controller.home']->indexAction();
+$router->respond('GET', '/', function () use ($home_controller) {
+    return $home_controller->indexAction();
 });
 
-$router->respond('404', function () use ($app) {
-    return $app['controller.error']->_404();
+$router->respond('404', function () use ($error_controller) {
+    return $error_controller->_404();
 });
-
 
 $router->dispatch();
 
