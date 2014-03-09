@@ -32,13 +32,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FeedRepository.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/Rss/Repo/FeedRepository.php">
+      <file leaf-file-name="UserRepositoryTest.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/Rss/Test/UserRepositoryTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="34" selection-start="1085" selection-end="1085" vertical-scroll-proportion="-19.541666" vertical-offset="116" max-vertical-offset="750">
+            <state line="151" column="42" selection-start="4061" selection-end="4061" vertical-scroll-proportion="0.89841986" vertical-offset="1867" max-vertical-offset="2400">
               <folding>
-                <marker date="1394394321000" expanded="true" signature="413:465" placeholder="INSERT INTO ..." />
-                <marker date="1394394321000" expanded="true" signature="1012:1047" placeholder="DELETE FROM ..." />
+                <element signature="e#28#73#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,16 +46,30 @@
       <file leaf-file-name="FeedRepositoryTest.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Rss/Test/FeedRepositoryTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="1" selection-start="102" selection-end="102" vertical-scroll-proportion="11.25" vertical-offset="390" max-vertical-offset="1215">
+            <state line="30" column="20" selection-start="632" selection-end="632" vertical-scroll-proportion="-6.25" vertical-offset="300" max-vertical-offset="1230">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomeController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="UserRepository.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Rss/Repo/UserRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="48" column="12" selection-start="1227" selection-end="1227" vertical-scroll-proportion="-12.666667" vertical-offset="341" max-vertical-offset="885">
+              <folding>
+                <element signature="e#117#163#0" expanded="true" />
+                <marker date="1394400610000" expanded="true" signature="459:498" placeholder="INSERT INTO ..." />
+                <marker date="1394400610000" expanded="true" signature="1070:1105" placeholder="DELETE FROM ..." />
+                <marker date="1394400610000" expanded="true" signature="1169:1201" placeholder="DELETE FROM ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/Rss/Controller/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="8" selection-start="333" selection-end="333" vertical-scroll-proportion="0.5117271" vertical-offset="0" max-vertical-offset="469">
+            <state line="16" column="0" selection-start="325" selection-end="325" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="360">
               <folding />
             </state>
           </provider>
@@ -104,9 +117,12 @@
         <option value="$PROJECT_DIR$/lib/Rss/Repo/Repository.php" />
         <option value="$PROJECT_DIR$/tests/Rss/Test/DatabaseTest.php" />
         <option value="$PROJECT_DIR$/lib/Rss/Exception/InvalidDBParameterException.php" />
-        <option value="$PROJECT_DIR$/lib/Rss/Repo/FeedRepository.php" />
-        <option value="$PROJECT_DIR$/tests/Rss/Test/FeedRepositoryTest.php" />
         <option value="$PROJECT_DIR$/lib/Rss/Controller/HomeController.php" />
+        <option value="$PROJECT_DIR$/lib/Rss/Exception/DuplicateUserHashException.php" />
+        <option value="$PROJECT_DIR$/lib/Rss/Repo/FeedRepository.php" />
+        <option value="$PROJECT_DIR$/lib/Rss/Repo/UserRepository.php" />
+        <option value="$PROJECT_DIR$/tests/Rss/Test/FeedRepositoryTest.php" />
+        <option value="$PROJECT_DIR$/tests/Rss/Test/UserRepositoryTest.php" />
       </list>
     </option>
   </component>
@@ -342,6 +358,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/Rss/Test" />
+      <recent name="$PROJECT_DIR$/lib/Rss/Repo" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/config" />
     </key>
@@ -461,7 +479,9 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/composer.json">
@@ -653,12 +673,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Rss/Exception/DuplicateUserHashException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="42" selection-start="164" selection-end="164" vertical-scroll-proportion="0.20179372" vertical-offset="0" max-vertical-offset="446">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Rss/Controller/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="325" selection-end="325" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/Rss/Repo/FeedRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="34" selection-start="1085" selection-end="1085" vertical-scroll-proportion="-19.541666" vertical-offset="116" max-vertical-offset="750">
+        <state line="54" column="20" selection-start="1335" selection-end="1335" vertical-scroll-proportion="0.84008527" vertical-offset="341" max-vertical-offset="870">
           <folding>
-            <marker date="1394394321000" expanded="true" signature="413:465" placeholder="INSERT INTO ..." />
-            <marker date="1394394321000" expanded="true" signature="1012:1047" placeholder="DELETE FROM ..." />
+            <marker date="1394397674000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1394397674000" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
@@ -670,17 +704,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Rss/Repo/UserRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="12" selection-start="1227" selection-end="1227" vertical-scroll-proportion="-12.666667" vertical-offset="341" max-vertical-offset="885">
+          <folding>
+            <element signature="e#117#163#0" expanded="true" />
+            <marker date="1394400610000" expanded="true" signature="459:498" placeholder="INSERT INTO ..." />
+            <marker date="1394400610000" expanded="true" signature="1070:1105" placeholder="DELETE FROM ..." />
+            <marker date="1394400610000" expanded="true" signature="1169:1201" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Rss/Test/FeedRepositoryTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="1" selection-start="102" selection-end="102" vertical-scroll-proportion="11.25" vertical-offset="390" max-vertical-offset="1215">
+        <state line="30" column="20" selection-start="632" selection-end="632" vertical-scroll-proportion="-6.25" vertical-offset="300" max-vertical-offset="1230">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Rss/Controller/HomeController.php">
+    <entry file="file://$PROJECT_DIR$/tests/Rss/Test/UserRepositoryTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="8" selection-start="333" selection-end="333" vertical-scroll-proportion="0.5117271" vertical-offset="0" max-vertical-offset="469">
-          <folding />
+        <state line="151" column="42" selection-start="4061" selection-end="4061" vertical-scroll-proportion="0.89841986" vertical-offset="1867" max-vertical-offset="2400">
+          <folding>
+            <element signature="e#28#73#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

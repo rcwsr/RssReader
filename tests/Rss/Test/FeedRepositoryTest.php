@@ -28,12 +28,13 @@ class FeedRepositoryTest extends TestCase
         $feed_repo->insert($data);
     }
 
-    public function testInsertAndDeleteValidData()
+    public function InsertAndDeleteValidData()
     {
         $feed_repo = new FeedRepository($this->config);
         $data = array(
             'title' => 'BBC News Feed',
-            'url' => 'http://feeds.bbci.co.uk/news/rss.xml'
+            'url' => 'http://feeds.bbci.co.uk/news/rss.xml',
+            'user_id' => '2'
         );
         $inserted = $feed_repo->insert($data);
         $this->assertInternalType('int', $inserted);

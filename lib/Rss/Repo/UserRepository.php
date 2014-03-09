@@ -10,18 +10,11 @@ namespace Rss\Repo;
 
 
 use Rss\Exception\InvalidDBParameterException;
+use Rss\Exception\DuplicateUserHashException;
 
-class FeedRepository extends Repository
+class UserRepository extends Repository
 {
 
-    /**
-     * @param $data
-     * @return int
-     * @throws \Exception
-     * @throws \PDOException
-     * @throws \InvalidArgumentException
-     * @throws \Rss\Exception\InvalidDBParameterException
-     */
     public function insert($data)
     {
         if (!is_array($data)) {
@@ -29,12 +22,15 @@ class FeedRepository extends Repository
         }
 
         try {
-            $sql = $this->db->prepare("INSERT INTO feeds (url, title, user_id) VALUES (:url, :title, :user_id)");
+            $sql = $this->db->prepare("INSERT INTO users (hash) VALUES (:hash);");
             $sql->execute($data);
         } catch (\PDOException $e) {
             switch ($e->getCode()) {
                 case 'HY093':
                     throw new InvalidDBParameterException();
+                    break;
+                case '23000':
+                    throw new DuplicateUserHashException();
                     break;
                 default:
                     throw $e;
@@ -45,11 +41,16 @@ class FeedRepository extends Repository
 
     public function delete($id)
     {
-        if (!is_int($id)) {
-            throw new \InvalidArgumentException("Must be an integer");
+        if(is_int($id)){
+            $sql_string = "DELETE FROM users WHERE user_id = ?;";
+        }elseif(is_string($id)){
+            $sql_string = "DELETE FROM users WHERE hash = ?;";
+        }
+        else{
+            throw new \InvalidArgumentException("id param must be int or string");
         }
 
-        $sql = $this->db->prepare("DELETE FROM feeds WHERE feed_id = ?");
+        $sql = $this->db->prepare($sql_string);
         $sql->execute(array($id));
 
         return true;
