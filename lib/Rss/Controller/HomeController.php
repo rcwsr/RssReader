@@ -2,19 +2,18 @@
 
 namespace Rss\Controller;
 
+use Rss\Database;
+
 class HomeController extends Controller
 {
-
-    /**
-     * @param $twig_path
-     */
-    public function __construct($twig_path)
+    public function indexGetAction()
     {
-        parent::__construct($twig_path);
+        $db = Database::connect($this->config['db']);
+        return $this->twig->render('index.html.twig', array('name' => 'Fabien'));
     }
 
-    public function indexAction()
+    public function indexPostAction()
     {
-        return $this->twig->render('index.html.twig', array('name' => 'Fabien'));
+        
     }
 }
