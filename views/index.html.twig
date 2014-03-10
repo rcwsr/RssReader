@@ -46,23 +46,23 @@
                 var url = "/ajax/addfeed";
                 var data = $('#feed-form').serialize();
                 $.post(url, data)
-                    .success(function (data) {
-                        data = JSON.parse(data);
-                        if (data.success) {
-                            alert(data.success);
-                            loadPublicFeeds(10);
-                            loadMyFeeds(10);
+                        .success(function (data) {
+                            data = JSON.parse(data);
+                            if (data.success) {
+                                alert(data.success);
+                                loadPublicFeeds(10);
+                                loadMyFeeds(10);
 
-                        }
-                        else if(data.error){
-                            alert(data.error);
-                        }
+                            }
+                            else if (data.error) {
+                                alert(data.error);
+                            }
 
-                    });
+                        });
                 event.preventDefault();
             });
-
-            $('.read-button').click(function(event) {
+            $(document).on('click', '.read-button', function (event) {
+                console.log("Read button clicked");
                 event.preventDefault();
                 var slug = $(this).attr('id');
                 $('#rss-modal').foundation('reveal', 'open', {
@@ -74,12 +74,11 @@
         });
 
 
-
-        function loadMyFeeds(limit){
+        function loadMyFeeds(limit) {
             $("#my-feeds").load('/ajax/userfeeds/' + limit);
         }
 
-        function loadPublicFeeds(limit){
+        function loadPublicFeeds(limit) {
             $("#public-feeds").load('/ajax/publicfeeds/' + limit);
         }
 

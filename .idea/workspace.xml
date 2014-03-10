@@ -65,10 +65,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="publicfeeds.html.twig" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="publicfeeds.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/publicfeeds.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="29" selection-start="140" selection-end="140" vertical-scroll-proportion="0.08928572" vertical-offset="0" max-vertical-offset="504">
+            <state line="9" column="0" selection-start="297" selection-end="297" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="225">
               <folding />
             </state>
           </provider>
@@ -77,7 +77,7 @@
       <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="17" selection-start="1867" selection-end="1997" vertical-scroll-proportion="-43.75" vertical-offset="15" max-vertical-offset="1380">
+            <state line="64" column="44" selection-start="1826" selection-end="1826" vertical-scroll-proportion="-14.125" vertical-offset="621" max-vertical-offset="1365">
               <folding />
             </state>
           </provider>
@@ -101,10 +101,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myfeeds.html.twig" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="myfeeds.html.twig" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/myfeeds.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="71" selection-start="207" selection-end="218" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="315">
+            <state line="9" column="9" selection-start="297" selection-end="297" vertical-scroll-proportion="0.26785713" vertical-offset="0" max-vertical-offset="504">
               <folding />
             </state>
           </provider>
@@ -113,7 +113,7 @@
       <file leaf-file-name="base.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="37" selection-start="195" selection-end="195" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="555">
+            <state line="9" column="48" selection-start="413" selection-end="413" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="570">
               <folding />
             </state>
           </provider>
@@ -176,10 +176,10 @@
         <option value="$PROJECT_DIR$/app.php" />
         <option value="$PROJECT_DIR$/lib/Rss/Controller/HomeController.php" />
         <option value="$PROJECT_DIR$/lib/Rss/Controller/AjaxController.php" />
-        <option value="$PROJECT_DIR$/views/myfeeds.html.twig" />
+        <option value="$PROJECT_DIR$/views/publicfeeds.html.twig" />
         <option value="$PROJECT_DIR$/views/base.html.twig" />
         <option value="$PROJECT_DIR$/views/index.html.twig" />
-        <option value="$PROJECT_DIR$/views/publicfeeds.html.twig" />
+        <option value="$PROJECT_DIR$/views/myfeeds.html.twig" />
       </list>
     </option>
   </component>
@@ -898,7 +898,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="25" selection-start="613" selection-end="613" vertical-scroll-proportion="-2.25" vertical-offset="336" max-vertical-offset="1185">
           <folding>
-            <element signature="e#121#136#0" expanded="true" />
+            <element signature="e#121#136#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -960,30 +960,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/myfeeds.html.twig">
+    <entry file="file://$PROJECT_DIR$/views/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="71" selection-start="207" selection-end="218" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="315">
+        <state line="64" column="44" selection-start="1826" selection-end="1826" vertical-scroll-proportion="-14.125" vertical-offset="621" max-vertical-offset="1365">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="37" selection-start="195" selection-end="195" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="555">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="17" selection-start="1867" selection-end="1997" vertical-scroll-proportion="-43.75" vertical-offset="15" max-vertical-offset="1380">
+        <state line="9" column="48" selection-start="413" selection-end="413" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="570">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/publicfeeds.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="29" selection-start="140" selection-end="140" vertical-scroll-proportion="0.08928572" vertical-offset="0" max-vertical-offset="504">
+        <state line="9" column="0" selection-start="297" selection-end="297" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="225">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/myfeeds.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="9" selection-start="297" selection-end="297" vertical-scroll-proportion="0.26785713" vertical-offset="0" max-vertical-offset="504">
           <folding />
         </state>
       </provider>
