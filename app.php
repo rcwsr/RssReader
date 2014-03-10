@@ -17,7 +17,11 @@ $error_controller = new HomeController($config);
 $router = new Router();
 
 $router->respond('GET', '/', function () use ($home_controller) {
-    return $home_controller->indexAction();
+    return $home_controller->indexGetAction();
+});
+
+$router->respond('POST', '/', function () use ($home_controller) {
+    return $home_controller->indexPostAction();
 });
 
 $router->respond('404', function () use ($error_controller) {

@@ -1,7 +1,9 @@
 {% extends "base.html.twig" %}
 {% block content %}
 
-    <p>Add your RSS feeds below</p>
+
+    <hr>
+    <h2>Add your RSS feeds below</h2>
     <form method="post">
         <div class="row">
             <div class="small-6 columns">
@@ -16,7 +18,19 @@
             </div>
         </div>
     </form>
-    <h2>My Feeds</h2>
+    <hr>
+    {% if public_feeds %}
+        <h2>My Feeds</h2>
+    {% else %}
+        <h2 class="subheader">You haven't added any feeds yet!</h2>
+    {% endif %}
 
-    <h2>Public Feeds</h2>
+
+    {% if public_feeds %}
+        <h2>Latest Public feeds</h2>
+        {% for feed in public_feeds %}
+            {{ feed }}
+        {% endfor %}
+    {% endif %}
+
 {% endblock %}
