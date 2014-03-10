@@ -9,6 +9,7 @@
 namespace Rss\Repo;
 
 use Rss\Database;
+use Rss\Model\Model;
 
 /**
  * Class Repository
@@ -25,9 +26,10 @@ abstract class Repository
         $this->db = Database::connect($config['db']);
     }
 
-    public abstract function insert($data);
+    public abstract function insert(Model $model);
     public abstract function delete($id);
-
+    public abstract function getOne($id);
+    public abstract function getAll($limit = null);
     public function __destruct()
     {
         $db = null;
