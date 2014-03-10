@@ -10,7 +10,6 @@ namespace Rss\Repo;
 
 
 use Rss\Exception\FeedIdNotFoundException;
-use Rss\Exception\InvalidDBParameterException;
 use Rss\Exception\UserIdNotFoundException;
 use Rss\Model\Feed;
 use Rss\Model\Model;
@@ -37,9 +36,8 @@ class FeedRepository extends Repository
         $sql = $this->db->prepare('SELECT id FROM users WHERE id = :id LIMIT 1;');
         $sql->execute(array('id' => $feed->getUserId()));
 
-        if(!$sql->fetch()){
-            throw new UserIdNotFoundException(
-                sprintf("A user with the ID %s does not exist", $feed->getUserId()));
+        if (!$sql->fetch()) {
+            throw new UserIdNotFoundException(sprintf("A user with the ID %s does not exist", $feed->getUserId()));
         }
 
 
@@ -51,7 +49,6 @@ class FeedRepository extends Repository
         );
 
 
-
         $sql = $this->db->prepare("INSERT INTO feeds (url, title, user_id) VALUES (:url, :title, :user_id)");
         $sql->execute($data);
 
@@ -59,6 +56,12 @@ class FeedRepository extends Repository
         return (int)$this->db->lastInsertId();
     }
 
+    /**
+     * @param $id
+     * @return bool
+     * @throws \Rss\Exception\FeedIdNotFoundException
+     * @throws \InvalidArgumentException
+     */
     public function delete($id)
     {
         if (!is_int($id)) {
@@ -75,12 +78,13 @@ class FeedRepository extends Repository
         return true;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function getOne($id)
     {
-        $sql = $this->db->prepare('SELECT id, title, url, user_id
-                                      FROM feeds
-                                      WHERE id = :id
-                                      LIMIT 1;');
+        $sql = $this->db->prepare('SELECT id, title, url, user_id FROM feeds WHERE id = :id LIMIT 1;');
 
 
         $sql->execute(array('id' => $id));
@@ -91,92 +95,49 @@ class FeedRepository extends Repository
     }
 
     /**
-     * @param null $limit
-     * @return array
-     * @throws \Exception
-     * @throws \PDOException
-     * @throws \InvalidArgumentException
-     */
-    public function getAll($limit = null)
-    {
-        if ($limit) {
-            if (!is_int($limit)) {
-                throw new \InvalidArgumentException("Limit must be an int");
-            }
-            $results = $this->db->prepare('SELECT id, title, url, user_id
-                                           From feeds
-                                           ORDER BY date_added DESC
-                                           LIMIT :limit;');
-            $results->bindValue(':limit', $limit, \PDO::PARAM_INT);
-
-        } else {
-            $results = $this->db->prepare('SELECT id, title, url, user_id
-                                           From feeds
-                                           ORDER BY date_added DESC;');
-
-        }
-        try{
-            $results->execute();
-            $results->setFetchMode(\PDO::FETCH_CLASS, Feed::class);
-            $feeds = $results->fetchAll();
-        }catch (\PDOException $e) {
-            throw $e;
-        }
-
-
-        return $feeds;
-    }
-
-    /**
      * @param User $user
-     * @param null $limit
      * @return array
-     * @throws \InvalidArgumentException
      * @throws \Rss\Exception\UserIdNotFoundException
      */
     public function getAllByUser(User $user, $limit = null)
     {
-        //check limit parameter is an int
-        if ($limit) {
-            if (!is_int($limit)) {
-                throw new \InvalidArgumentException("Limit must be an int");
-            }
-        }
-
         //check if user exists:
         $sql = $this->db->prepare('SELECT id FROM users WHERE id = :id LIMIT 1;');
         $sql->execute(array('id' => $user->getId()));
 
-        if(!$sql->fetch()){
-            throw new UserIdNotFoundException(
-                sprintf("A user with the ID %s does not exist", $user->getId()));
+        if (!$sql->fetch()) {
+            throw new UserIdNotFoundException(sprintf("A user with the ID %s does not exist", $user->getId()));
         }
 
-        //perform queries
+        $results = $this->db->prepare('SELECT id, title, url, user_id FROM feeds WHERE user_id = ? ORDER BY date_added DESC;');
+
+        $results->execute(array($user->getId()));
+        $results->setFetchMode(\PDO::FETCH_CLASS, Feed::class);
+        $feeds = $results->fetchAll();
+
         if($limit){
-            $results = $this->db->prepare('SELECT id, title, url, user_id
-                                           FROM feeds
-                                           WHERE user_id = :user_id
-                                           ORDER BY date_added DESC
-                                           LIMIT :limit;');
-            $results->bindValue(':limit', $limit, \PDO::PARAM_INT);
-            $results->bindValue(':user_id', $user->getId(), \PDO::PARAM_INT);
-
-        } else {
-            $results = $this->db->prepare('SELECT id, title, url, user_id
-                                           FROM feeds
-                                           WHERE user_id = :user_id
-                                           ORDER BY date_added DESC;');
-            $results->bindValue(':user_id', $user->getId(), \PDO::PARAM_INT);
+            $feeds = array_slice($feeds, 0, $limit);
         }
+        return $feeds;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAll($limit = null)
+    {
+        $results = $this->db->prepare('SELECT id, title, url, user_id FROM feeds ORDER BY date_added DESC;');
+        $results->execute();
+
         $results->execute();
         $results->setFetchMode(\PDO::FETCH_CLASS, Feed::class);
         $feeds = $results->fetchAll();
 
+        if($limit){
+            $feeds = array_slice($feeds, 0, $limit);
+        }
         return $feeds;
     }
-
-
 
 
 }

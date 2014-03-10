@@ -29,7 +29,7 @@ abstract class Repository
     public abstract function insert(Model $model);
     public abstract function delete($id);
     public abstract function getOne($id);
-    public abstract function getAll($limit = null);
+    public abstract function getAll($limit);
     public function __destruct()
     {
         $db = null;
