@@ -3,132 +3,109 @@
 namespace Rss\Test;
 
 use Rss\Exception\DuplicateUserHashException;
+use Rss\Model\Feed;
+use Rss\Model\User;
 use Rss\Repo\UserRepository;
 
 class UserRepositoryTest extends TestCase
 {
 
-    public function testInsertNonArray()
+    public function testInsertInt()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->setExpectedException('PHPUnit_Framework_Error');
         $user_repo = new UserRepository($this->config);
+        $this->assertInstanceOf('Rss\Repo\UserRepository', $user_repo);
 
-        $data = 12345;
-        $user_repo->insert($data);
+        $user = 12345;
+        $user_repo->insert($user);
 
     }
 
-    public function testInsertNonArray2()
+    public function testInsertArray()
+    {
+        $this->setExpectedException('PHPUnit_Framework_Error');
+        $user_repo = new UserRepository($this->config);
+        $this->assertInstanceOf('Rss\Repo\UserRepository', $user_repo);
+
+        $user = array('hash' => "abcdefgh");
+
+        $user_repo->insert($user);
+    }
+
+    public function testInsertString()
+    {
+        $this->setExpectedException('PHPUnit_Framework_Error');
+        $user_repo = new UserRepository($this->config);
+        $this->assertInstanceOf('Rss\Repo\UserRepository', $user_repo);
+
+        $user = "bbbbbbbbb";
+        $user_repo->insert($user);
+    }
+
+    public function testInsertFeed()
     {
         $this->setExpectedException('InvalidArgumentException');
         $user_repo = new UserRepository($this->config);
+        $this->assertInstanceOf('Rss\Repo\UserRepository', $user_repo);
 
-        $data = "data";
-        $user_repo->insert($data);
+        $user = new Feed();
+        $user->setTitle('BBC News Feed')
+            ->setUrl('http://feeds.bbci.co.uk/news/rss.xml')
+            ->setUserId(12355);
+        $user_repo->insert($user);
     }
 
     public function testInsertValidData()
     {
         $user_repo = new UserRepository($this->config);
-        $data = array(
-            'hash' => 'userHash',
-        );
-        $inserted = $user_repo->insert($data);
+        $user = new User();
+        $inserted = $user_repo->insert($user);
         $this->assertInternalType('int', $inserted);
-
-
-        $deleted = $user_repo->delete('userHash');
-        $this->assertTrue($deleted);
     }
 
     public function testInsertDuplicateUserHash()
     {
         $user_repo = new UserRepository($this->config);
 
-        $data1 = array(
-            'hash' => 'abcdefgh',
-        );
+        $user = new User();
+        $hash = $user->getHash();
 
-        $data2 = array(
-            'hash' => 'abcdefgh',
-        );
+        $user_repo->insert($user);
 
-
-        try {
-            $inserted1 = $user_repo->insert($data1);
-            $this->assertInternalType('int', $inserted1);
-        } catch (DuplicateUserHashException $e) {
-            $deleted = $user_repo->delete('abcdefgh');
-            $this->assertTrue($deleted);
-
-            $inserted1 = $user_repo->insert($data1);
-            $this->assertInternalType('int', $inserted1);
-        }
-
+        $user2 = new User();
+        $user2->setHash($hash);
 
         $this->setExpectedException('Rss\Exception\DuplicateUserHashException');
+        $user_repo->insert($user2);
 
-        $inserted2 = $user_repo->insert($data2);
-
-        $deleted = $user_repo->delete('abcdefgh');
-        $this->assertTrue($deleted);
     }
 
-    public function testInsertInvalidKeys1()
-    {
-        $this->setExpectedException('Rss\Exception\InvalidDBParameterException');
-        $user_repo = new UserRepository($this->config);
-        $data = array(
-            'invalid_key' => 'userHash',
-        );
-        $inserted = $user_repo->insert($data);
-    }
 
-    public function testInsertInvalidKeys2()
-    {
-        $this->setExpectedException('Rss\Exception\InvalidDBParameterException');
-        $user_repo = new UserRepository($this->config);
-        $data = array();
-        $inserted = $user_repo->insert($data);
-    }
-
-    public function testInsertInvalidKeys3()
-    {
-        $this->setExpectedException('Rss\Exception\InvalidDBParameterException');
-        $user_repo = new UserRepository($this->config);
-        $data = array(
-            'url' => 'http://feeds.bbci.co.uk/news/rss.xml'
-        );
-        $inserted = $user_repo->insert($data);
-    }
 
     public function testDeleteUsingHash()
     {
         $user_repo = new UserRepository($this->config);
 
 
-        $data = array(
-            'hash' => 'AAAAAAAA',
-        );
+        $user = new User();
+        $hash = $user->getHash();
 
-        $inserted = $user_repo->insert($data);
+        $inserted = $user_repo->insert($user);
         $this->assertInternalType('int', $inserted);
 
-        $id = 'AAAAAAAA';
 
-        $deleted = $user_repo->delete($id);
+        $deleted = $user_repo->delete($hash);
         $this->assertTrue($deleted);
+        //$this->setExpectedException('UserIdNotFoundException');
     }
 
     public function testDeleteUsingID()
     {
         $user_repo = new UserRepository($this->config);
 
-        $data = array(
-            'hash' => 'BBBBBBBB',
-        );
+        $user = new User();
 
-        $inserted = $user_repo->insert($data);
+        $inserted = $user_repo->insert($user);
         $this->assertInternalType('int', $inserted);
 
         $id = $inserted;
@@ -146,10 +123,27 @@ class UserRepositoryTest extends TestCase
 
     public function testDeleteUsingObject()
     {
-        $obj = (object) array('name' => 'Robin');
+        $obj = (object)array('name' => 'Robin');
         $user_repo = new UserRepository($this->config);
         $this->setExpectedException('InvalidArgumentException');
         $deleted = $user_repo->delete($obj);
+    }
+
+    public function testDeleteNonExistantID()
+    {
+        $id = 12345;
+        $this->setExpectedException('Rss\Exception\UserIdNotFoundException');
+        $user_repo = new UserRepository($this->config);
+        $deleted = $user_repo->delete($id);
+
+    }
+
+    public function testDeleteNonExistantHash()
+    {
+        $hash = "ZZZZZZZZ";
+        $this->setExpectedException('Rss\Exception\UserIdNotFoundException');
+        $user_repo = new UserRepository($this->config);
+        $deleted = $user_repo->delete($hash);
     }
 
 }
