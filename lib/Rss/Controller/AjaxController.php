@@ -86,5 +86,20 @@ class AjaxController extends Controller
         ));
     }
 
+    public function getFeedAction()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['feed_id'])) {
+
+                //TODO santise feed id
+                $feed_id =  $_POST['feed_id'];
+                $feed_repo = new FeedRepository($this->config);
+                $feed = $feed_repo->getOne($feed_id);
+                return $this->twig->render('rssview.html.twig', array('feed' => $feed));
+            }
+        }
+
+    }
+
 
 }

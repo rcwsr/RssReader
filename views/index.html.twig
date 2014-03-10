@@ -64,11 +64,11 @@
             $(document).on('click', '.read-button', function (event) {
                 console.log("Read button clicked");
                 event.preventDefault();
-                var slug = $(this).attr('id');
+                var feed = this.hash.substr(1);
                 $('#rss-modal').foundation('reveal', 'open', {
                     type: "POST",
-                    url: '/ajax/clubs/single',
-                    data: {}
+                    url: '/ajax/getfeed',
+                    data: {feed_id: feed}
                 });
             });
         });

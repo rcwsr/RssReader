@@ -42,6 +42,9 @@ $router->respond('GET', '/ajax/userfeeds/[i:limit]', function ($request) use ($a
 $router->respond('GET', '/ajax/userfeeds/all', function () use ($ajax_controller) {
     return $ajax_controller->loadMyFeedsInclude();
 });
+$router->respond('POST', '/ajax/getfeed', function () use ($ajax_controller) {
+    return $ajax_controller->getFeedAction();
+});
 
 
 $router->respond('404', function () use ($error_controller) {

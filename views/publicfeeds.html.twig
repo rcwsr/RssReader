@@ -2,7 +2,7 @@
     <h2>Latest Public Feeds</h2>
     <ul class="small-block-grid-1 medium-block-grid-2">
         {% for feed in public_feeds %}
-            <li>{{ feed.getTitle() }} <button class="right button tiny read-button">Read</button></li>
+            <li>{{ feed.getTitle() }} <a href="#{{ feed.getId() }}" class="right button tiny read-button success">Read</a></li>
         {% endfor %}
     </ul>
 {% endif %}
