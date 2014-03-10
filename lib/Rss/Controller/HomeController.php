@@ -29,9 +29,8 @@ class HomeController extends Controller
 
         //Get public and user feeds
 
-        $user_feeds = $feed_repo->getAllByUser($user);
-        $public_feeds = $feed_repo->getAll(20);
-
+        $user_feeds = $feed_repo->getAllByUser($user, 10);
+        $public_feeds = $feed_repo->getAll(10);
 
 
 
