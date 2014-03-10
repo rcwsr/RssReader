@@ -4,15 +4,16 @@
 
     <hr>
     <h2>Add your RSS feeds below</h2>
-    <form method="post">
+    <form method="post" id="feed-form">
         <div class="row">
             <div class="small-6 columns">
                 <div class="row collapse">
                     <div class="small-10 columns">
                         <input type="text" placeholder="URL">
                     </div>
+
                     <div class="small-2 columns">
-                        <a href="#" class="button postfix">Save</a>
+                        <button type="submit" class="postfix">Add</button>
                     </div>
                 </div>
             </div>
@@ -21,6 +22,9 @@
     <hr>
     {% if public_feeds %}
         <h2>My Feeds</h2>
+        {% for feed in user_feeds %}
+            {{ feed.getTitle() }}
+        {% endfor %}
     {% else %}
         <h2 class="subheader">You haven't added any feeds yet!</h2>
     {% endif %}
@@ -29,8 +33,27 @@
     {% if public_feeds %}
         <h2>Latest Public feeds</h2>
         {% for feed in public_feeds %}
-            {{ feed }}
+            {{ feed.getTitle() }}
         {% endfor %}
     {% endif %}
 
+{% endblock %}
+
+{% block js %}
+    <script>
+        $('document').ready(function($){
+            $("#feed-form").submit(function(event) {
+                var url = "/ajax/addfeed";
+                var data = $('#feed-form').serialize();
+                $.post(url, data)
+                    .success(function(data) {
+                        console.log("Ajax success!");
+                        //update feeds
+
+                    });
+                event.preventDefault();
+            })
+        });
+
+    </script>
 {% endblock %}

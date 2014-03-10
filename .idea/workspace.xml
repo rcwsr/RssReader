@@ -22,68 +22,73 @@
     <favorites_list name="rss" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.53866905">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="UserRepositoryTest.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/tests/Rss/Test/UserRepositoryTest.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="74" column="28" selection-start="2044" selection-end="2044" vertical-scroll-proportion="-5.96" vertical-offset="767" max-vertical-offset="2265">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="HomeController.php" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/lib/Rss/Controller/HomeController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="50" column="33" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.4085603" vertical-offset="540" max-vertical-offset="1380">
-                  <folding>
-                    <element signature="e#34#49#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/index.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="4" column="8" selection-start="61" selection-end="61" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="615">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="FeedRepository.php" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/lib/Rss/Repo/FeedRepository.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="134" column="53" selection-start="3612" selection-end="3612" vertical-scroll-proportion="0.32101166" vertical-offset="1845" max-vertical-offset="2805">
-                  <folding>
-                    <element signature="e#6#93#0" expanded="true" />
-                    <element signature="e#117#159#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="UserRepository.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/lib/Rss/Repo/UserRepository.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="46" column="0" selection-start="997" selection-end="997" vertical-scroll-proportion="7.9583335" vertical-offset="806" max-vertical-offset="1665">
-                  <folding>
-                    <element signature="e#117#162#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="HomeController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Rss/Controller/HomeController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="85" column="42" selection-start="2351" selection-end="2351" vertical-scroll-proportion="-16.958334" vertical-offset="868" max-vertical-offset="1395">
+              <folding>
+                <element signature="e#34#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AjaxController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Rss/Controller/AjaxController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="0" selection-start="326" selection-end="326" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="345">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="error.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/error.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="28" selection-start="191" selection-end="191" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="210">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ErrorController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Rss/Controller/ErrorController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="41" selection-start="480" selection-end="480" vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="435">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="45" selection-start="844" selection-end="844" vertical-scroll-proportion="-11.958333" vertical-offset="118" max-vertical-offset="645">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="50" column="38" selection-start="1450" selection-end="1450" vertical-scroll-proportion="0.65844405" vertical-offset="403" max-vertical-offset="960">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/base.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="38" selection-start="294" selection-end="294" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="540">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -104,12 +109,9 @@
         <option value="$PROJECT_DIR$/views/error.html" />
         <option value="$PROJECT_DIR$/views/base.html" />
         <option value="$PROJECT_DIR$/views/index.html" />
-        <option value="$PROJECT_DIR$/lib/Rss/Controller/ErrorController.php" />
-        <option value="$PROJECT_DIR$/views/error.html.twig" />
         <option value="$PROJECT_DIR$/config.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/lib/Rss/Controller/Controller.php" />
-        <option value="$PROJECT_DIR$/views/base.html.twig" />
         <option value="$PROJECT_DIR$/config/config.default.json" />
         <option value="$PROJECT_DIR$/lib/Rss/Exception/DatabaseException.php" />
         <option value="$PROJECT_DIR$/tests/FeedRepositoryTest.php" />
@@ -123,7 +125,6 @@
         <option value="$PROJECT_DIR$/tests/Rss/Test/DatabaseTest.php" />
         <option value="$PROJECT_DIR$/lib/Rss/Exception/InvalidDBParameterException.php" />
         <option value="$PROJECT_DIR$/lib/Rss/Exception/DuplicateUserHashException.php" />
-        <option value="$PROJECT_DIR$/app.php" />
         <option value="$PROJECT_DIR$/lib/Rss/Exception/NonExistantUserIDException.php" />
         <option value="$PROJECT_DIR$/lib/Rss/Exception/UserIDNotFoundException.php" />
         <option value="$PROJECT_DIR$/lib/Rss/Exception/FeedIDNotFoundException.php" />
@@ -138,8 +139,13 @@
         <option value="$PROJECT_DIR$/lib/Rss/Repo/UserRepository.php" />
         <option value="$PROJECT_DIR$/lib/Rss/Crypto.php" />
         <option value="$PROJECT_DIR$/lib/Rss/Repo/FeedRepository.php" />
-        <option value="$PROJECT_DIR$/views/index.html.twig" />
+        <option value="$PROJECT_DIR$/lib/Rss/Controller/AjaxController.php" />
+        <option value="$PROJECT_DIR$/app.php" />
+        <option value="$PROJECT_DIR$/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/views/error.html.twig" />
+        <option value="$PROJECT_DIR$/lib/Rss/Controller/ErrorController.php" />
         <option value="$PROJECT_DIR$/lib/Rss/Controller/HomeController.php" />
+        <option value="$PROJECT_DIR$/views/index.html.twig" />
       </list>
     </option>
   </component>
@@ -204,6 +210,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -315,6 +361,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Rss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Exception" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -373,11 +441,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/Rss/Controller" />
       <recent name="$PROJECT_DIR$/lib/Rss" />
       <recent name="$PROJECT_DIR$/lib/Rss/Exception" />
       <recent name="$PROJECT_DIR$/tests/Rss/Test" />
       <recent name="$PROJECT_DIR$/lib/Rss/Repo" />
-      <recent name="$PROJECT_DIR$/tests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tests/Rss/Test" />
@@ -610,21 +678,6 @@
         <state line="1" column="19" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="10" selection-start="471" selection-end="471" vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="510" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/error.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="26" selection-start="26" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="681" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Rss/Controller/ErrorController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="5" selection-start="262" selection-end="262" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="345" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/config.default.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="13" selection-start="48" selection-end="48" vertical-scroll-proportion="0.09594883" vertical-offset="0" max-vertical-offset="469" />
@@ -679,13 +732,6 @@
     <entry file="file://$PROJECT_DIR$/lib/Rss/Exception/DuplicateUserHashException.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="42" selection-start="164" selection-end="164" vertical-scroll-proportion="0.20179372" vertical-offset="0" max-vertical-offset="446">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="570">
           <folding />
         </state>
       </provider>
@@ -776,41 +822,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Rss/Test/FeedRepositoryTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="23" selection-start="2466" selection-end="2466" vertical-scroll-proportion="0.26124197" vertical-offset="1198" max-vertical-offset="6525">
-          <folding>
-            <element signature="e#28#45#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Rss/Test/UserRepositoryTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="28" selection-start="2044" selection-end="2044" vertical-scroll-proportion="-5.96" vertical-offset="767" max-vertical-offset="2265">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Rss/Repo/UserRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="997" selection-end="997" vertical-scroll-proportion="7.9583335" vertical-offset="806" max-vertical-offset="1665">
-          <folding>
-            <element signature="e#117#162#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/Rss/Crypto.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="15" selection-start="58" selection-end="58" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="795">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="8" selection-start="61" selection-end="61" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="615">
           <folding />
         </state>
       </provider>
@@ -825,12 +839,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Rss/Repo/UserRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="0" selection-start="997" selection-end="997" vertical-scroll-proportion="-0.37159532" vertical-offset="806" max-vertical-offset="1665">
+          <folding>
+            <element signature="e#117#162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Rss/Test/UserRepositoryTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="28" selection-start="2044" selection-end="2044" vertical-scroll-proportion="-5.96" vertical-offset="767" max-vertical-offset="2265">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="45" selection-start="844" selection-end="844" vertical-scroll-proportion="-11.958333" vertical-offset="118" max-vertical-offset="645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Rss/Test/FeedRepositoryTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="7" selection-start="2537" selection-end="2694" vertical-scroll-proportion="-7.8557873" vertical-offset="5445" max-vertical-offset="6465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="38" selection-start="294" selection-end="294" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/error.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="28" selection-start="191" selection-end="191" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Rss/Controller/AjaxController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="326" selection-end="326" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Rss/Controller/ErrorController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="41" selection-start="480" selection-end="480" vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/Rss/Controller/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="33" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.4085603" vertical-offset="540" max-vertical-offset="1380">
+        <state line="85" column="42" selection-start="2351" selection-end="2351" vertical-scroll-proportion="-16.958334" vertical-offset="868" max-vertical-offset="1395">
           <folding>
             <element signature="e#34#49#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="38" selection-start="1450" selection-end="1450" vertical-scroll-proportion="0.65844405" vertical-offset="403" max-vertical-offset="960">
+          <folding />
         </state>
       </provider>
     </entry>

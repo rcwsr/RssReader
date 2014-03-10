@@ -5,6 +5,7 @@ namespace Rss\Controller;
 use Rss\Crypto;
 use Rss\Exception\DuplicateUserHashException;
 use Rss\Exception\UserIdNotFoundException;
+use Rss\Model\Feed;
 use Rss\Model\User;
 use Rss\Repo\FeedRepository;
 use Rss\Repo\UserRepository;
@@ -48,7 +49,7 @@ class HomeController extends Controller
         $public_feeds = $feed_repo->getAll(20);
 
 
-        for($i = 0; $i < 10; $i++)
+
 
         return $this->twig->render('index.html.twig', array(
             'public_feeds' => $public_feeds,
@@ -82,6 +83,6 @@ class HomeController extends Controller
 
     public function indexPostAction()
     {
-        return "hello";
+        return "Please enable javascript";
     }
 }

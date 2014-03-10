@@ -1,4 +1,8 @@
 {% extends "base.html.twig" %}
 {% block content %}
-    <h2>Something went wrong: <em></em>{{ error_code }}</em></h2>
+    <h2>Something went wrong {% if error_code %}<em>{{ error_code }}</em>{% endif %}</h2>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
 {% endblock %}
