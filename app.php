@@ -30,6 +30,18 @@ $router->respond('POST', '/', function () use ($home_controller) {
 $router->respond('POST', '/ajax/addfeed', function () use ($ajax_controller) {
     return $ajax_controller->addFeedAction();
 });
+$router->respond('GET', '/ajax/publicfeeds/[i:limit]', function ($request) use ($ajax_controller) {
+    return $ajax_controller->loadPublicFeedsInclude($request->limit);
+});
+$router->respond('GET', '/ajax/publicfeeds/all', function () use ($ajax_controller) {
+    return $ajax_controller->loadPublicFeedsInclude();
+});
+$router->respond('GET', '/ajax/userfeeds/[i:limit]', function ($request) use ($ajax_controller) {
+    return $ajax_controller->loadMyFeedsInclude($request->limit);
+});
+$router->respond('GET', '/ajax/userfeeds/all', function () use ($ajax_controller) {
+    return $ajax_controller->loadMyFeedsInclude();
+});
 
 
 $router->respond('404', function () use ($error_controller) {

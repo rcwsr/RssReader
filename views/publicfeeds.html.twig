@@ -1,0 +1,8 @@
+{% if public_feeds %}
+    <h2>Latest Public Feeds</h2>
+    <ul class="small-block-grid-1 medium-block-grid-2">
+        {% for feed in public_feeds %}
+            <li>{{ feed.getTitle() }} <button class="right button tiny read-button">Read</button></li>
+        {% endfor %}
+    </ul>
+{% endif %}

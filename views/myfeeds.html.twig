@@ -1,0 +1,15 @@
+{% if user_feeds %}
+    <h2>My Feeds</h2>
+
+    <ul class="small-block-grid-1 medium-block-grid-2">
+        {% for feed in user_feeds %}
+            <li>{{ feed.getTitle() }} <button class="right button tiny read-button">Read</button></li>
+        {% endfor %}
+    </ul>
+
+
+
+
+{% else %}
+    <h2 class="subheader">You haven't added any feeds yet!</h2>
+{% endif %}

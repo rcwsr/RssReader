@@ -1,15 +1,18 @@
 {% extends "base.html.twig" %}
 {% block content %}
+    <div id="rss-modal" class="reveal-modal" data-reveal>
 
+    </div>
 
     <hr>
+
     <h2>Add your RSS feeds below</h2>
     <form method="post" id="feed-form">
         <div class="row">
-            <div class="small-6 columns">
+            <div class="small-12 large-6 columns">
                 <div class="row collapse">
                     <div class="small-10 columns">
-                        <input type="text" placeholder="URL">
+                        <input type="text" placeholder="URL" name="url">
                     </div>
 
                     <div class="small-2 columns">
@@ -19,41 +22,66 @@
             </div>
         </div>
     </form>
+
     <hr>
-    {% if public_feeds %}
-        <h2>My Feeds</h2>
-        {% for feed in user_feeds %}
-            {{ feed.getTitle() }}
-        {% endfor %}
-    {% else %}
-        <h2 class="subheader">You haven't added any feeds yet!</h2>
-    {% endif %}
+    <div id="my-feeds">
+        {% include 'myfeeds.html.twig' %}
+    </div>
+
+    <div id="public-feeds">
+        {% include 'publicfeeds.html.twig' %}
+    </div>
 
 
-    {% if public_feeds %}
-        <h2>Latest Public feeds</h2>
-        {% for feed in public_feeds %}
-            {{ feed.getTitle() }}
-        {% endfor %}
-    {% endif %}
+
+
+
 
 {% endblock %}
 
 {% block js %}
     <script>
-        $('document').ready(function($){
-            $("#feed-form").submit(function(event) {
+        $('document').ready(function ($) {
+            $("#feed-form").submit(function (event) {
                 var url = "/ajax/addfeed";
                 var data = $('#feed-form').serialize();
                 $.post(url, data)
-                    .success(function(data) {
-                        console.log("Ajax success!");
-                        //update feeds
+                    .success(function (data) {
+                        data = JSON.parse(data);
+                        if (data.success) {
+                            alert(data.success);
+                            loadPublicFeeds(10);
+                            loadMyFeeds(10);
+
+                        }
+                        else if(data.error){
+                            alert(data.error);
+                        }
 
                     });
                 event.preventDefault();
-            })
+            });
+
+            $('.read-button').click(function(event) {
+                event.preventDefault();
+                var slug = $(this).attr('id');
+                $('#rss-modal').foundation('reveal', 'open', {
+                    type: "POST",
+                    url: '/ajax/clubs/single',
+                    data: {}
+                });
+            });
         });
+
+
+
+        function loadMyFeeds(limit){
+            $("#my-feeds").load('/ajax/userfeeds/' + limit);
+        }
+
+        function loadPublicFeeds(limit){
+            $("#public-feeds").load('/ajax/publicfeeds/' + limit);
+        }
 
     </script>
 {% endblock %}
