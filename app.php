@@ -30,17 +30,30 @@ $router->respond('POST', '/', function () use ($home_controller) {
 $router->respond('POST', '/ajax/addfeed', function () use ($ajax_controller) {
     return $ajax_controller->addFeedAction();
 });
+
+
+
+$router->respond('POST', '/ajax/deletefeedcheck', function () use ($ajax_controller) {
+    return $ajax_controller->deleteFeedConfirmationAction();
+});
+
+$router->respond('POST', '/ajax/deletefeed', function () use ($ajax_controller) {
+    return $ajax_controller->deleteFeedAction();
+});
+
+
 $router->respond('GET', '/ajax/publicfeeds/[i:limit]', function ($request) use ($ajax_controller) {
-    return $ajax_controller->loadPublicFeedsInclude($request->limit);
+    return $ajax_controller->loadPublicFeedsIncludeAction($request->limit);
 });
 $router->respond('GET', '/ajax/publicfeeds/all', function () use ($ajax_controller) {
-    return $ajax_controller->loadPublicFeedsInclude();
+    return $ajax_controller->loadPublicFeedsIncludeAction();
 });
+
 $router->respond('GET', '/ajax/userfeeds/[i:limit]', function ($request) use ($ajax_controller) {
-    return $ajax_controller->loadMyFeedsInclude($request->limit);
+    return $ajax_controller->loadUserFeedsIncludeAction($request->limit);
 });
 $router->respond('GET', '/ajax/userfeeds/all', function () use ($ajax_controller) {
-    return $ajax_controller->loadMyFeedsInclude();
+    return $ajax_controller->loadUserFeedsIncludeAction();
 });
 $router->respond('POST', '/ajax/getfeed', function () use ($ajax_controller) {
     return $ajax_controller->getFeedAction();

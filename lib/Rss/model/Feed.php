@@ -8,13 +8,14 @@ class Feed extends Model
     private $url;
     private $title;
     private $user_id;
+    private $items = array();
 
     /**
      * @param mixed $id
      */
     public function setId($id)
     {
-        $this->id = $id;
+        $this->id = (int) $id;
         return $this;
     }
 
@@ -23,7 +24,7 @@ class Feed extends Model
      */
     public function getId()
     {
-        return $this->id;
+        return (int) $this->id;
     }
 
     /**
@@ -77,6 +78,25 @@ class Feed extends Model
     {
         return $this->user_id;
     }
+
+    /**
+     * @param array $items
+     */
+    public function setItems($items)
+    {
+        $this->items = $items;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+
 
 
 

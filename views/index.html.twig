@@ -1,9 +1,7 @@
 {% extends "base.html.twig" %}
 {% block content %}
-    <div id="rss-modal" class="reveal-modal" data-reveal>
-
-    </div>
-
+    <div id="rss-modal" class="reveal-modal" data-reveal></div>
+    <div id="rss-delete-modal" class="reveal-modal" data-reveal></div>
     <hr>
 
     <h2>Add your RSS feeds below</h2>
@@ -12,11 +10,11 @@
             <div class="small-12 large-6 columns">
                 <div class="row collapse">
                     <div class="small-10 columns">
-                        <input type="text" placeholder="URL" name="url">
+                        <input type="text" placeholder="URL" name="url" class="radius">
                     </div>
 
                     <div class="small-2 columns">
-                        <button type="submit" class="postfix">Add</button>
+                        <button type="submit" class="radius button postfix success">Add</button>
                     </div>
                 </div>
             </div>
@@ -24,14 +22,15 @@
     </form>
 
     <hr>
-    <div id="my-feeds">
-        {% include 'myfeeds.html.twig' %}
-    </div>
+    <div class="row">
+        <div id="my-feeds">
 
-    <div id="public-feeds">
-        {% include 'publicfeeds.html.twig' %}
-    </div>
+        </div>
 
+        <div id="public-feeds">
+
+        </div>
+    </div>
 
 
 
@@ -41,7 +40,10 @@
 
 {% block js %}
     <script>
+        var limit = 10;
         $('document').ready(function ($) {
+            loadUserFeeds(limit);
+            loadPublicFeeds(limit);
             $("#feed-form").submit(function (event) {
                 var url = "/ajax/addfeed";
                 var data = $('#feed-form').serialize();
@@ -50,9 +52,8 @@
                             data = JSON.parse(data);
                             if (data.success) {
                                 alert(data.success);
-                                loadPublicFeeds(10);
-                                loadMyFeeds(10);
-
+                                loadPublicFeeds(limit);
+                                loadUserFeeds(limit);
                             }
                             else if (data.error) {
                                 alert(data.error);
@@ -62,7 +63,6 @@
                 event.preventDefault();
             });
             $(document).on('click', '.read-button', function (event) {
-                console.log("Read button clicked");
                 event.preventDefault();
                 var feed = this.hash.substr(1);
                 $('#rss-modal').foundation('reveal', 'open', {
@@ -71,10 +71,60 @@
                     data: {feed_id: feed}
                 });
             });
+
+            $(document).on('click', '.delete-button', function (event) {
+                event.preventDefault();
+                var feed = this.hash.substr(1);
+                $('#rss-modal').foundation('reveal', 'open', {
+                    type: "POST",
+                    url: '/ajax/deletefeedcheck',
+                    data: {feed_id: feed}
+                });
+            });
+
+            $(document).on('click', '.cancel', function (event) {
+                event.preventDefault();
+                $('#rss-delete-modal').foundation('reveal', 'close');
+            });
+
+            $(document).on('click', '.delete', function (event) {
+
+                var url = "/ajax/deletefeed";
+                var data = $('#delete-feed-form').serialize();
+                $.post(url, data)
+                        .success(function (data) {
+
+                            data = JSON.parse(data);
+                            if (data.success) {
+                                alert(data.success);
+                                $('#rss-delete-modal').foundation('reveal', 'close');
+                                loadUserFeeds(limit);
+                                loadPublicFeeds(limit);
+                            }
+                            else if (data.error) {
+                                alert(data.error);
+                            }
+
+                        });
+                event.preventDefault();
+            });
+
+            //Load feeds
+            $(document).on('click', '.user-feeds-limit', function (event) {
+                event.preventDefault();
+                limit = this.hash.substr(1);
+                loadUserFeeds(limit);
+            });
+
+            $(document).on('click', '.public-feeds-limit', function (event) {
+                event.preventDefault();
+                limit = this.hash.substr(1);
+                loadPublicFeeds(limit);
+            });
         });
 
 
-        function loadMyFeeds(limit) {
+        function loadUserFeeds(limit) {
             $("#my-feeds").load('/ajax/userfeeds/' + limit);
         }
 

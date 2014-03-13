@@ -29,14 +29,18 @@ class HomeController extends Controller
 
         //Get public and user feeds
 
-        $user_feeds = $feed_repo->getAllByUser($user, 10);
-        $public_feeds = $feed_repo->getAll(10);
 
+        $public_feeds = $feed_repo->getAll();
+        $user_feeds = $feed_repo->getAllByUser($user);
+        $total_user_feeds = count($user_feeds);
+        $total_public_feeds = count($public_feeds);
+
+        $user_feeds = array_slice($user_feeds, 0, 10);
+        $public_feeds = array_slice($public_feeds, 0, 10);
 
 
         return $this->twig->render('index.html.twig', array(
-            'public_feeds' => $public_feeds,
-            'user_feeds' => $user_feeds,
+            'user_id' => $user->getId(),
         ));
     }
 

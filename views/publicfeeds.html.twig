@@ -1,9 +1,28 @@
-{% if public_feeds %}
-    <h2>Latest Public Feeds</h2>
-    <ul class="small-block-grid-1 medium-block-grid-2">
-        {% for feed in public_feeds %}
-            <li>{{ feed.getTitle() }} <a href="#{{ feed.getId() }}" class="right button tiny read-button success">Read</a></li>
+{% if feeds %}
+<div class="small-12 medium-6 columns">
+    <h2>Public Feeds <small>{{ feeds|length }}/{{ total_feeds }}</small></h2>
+    <p>
+        {% if total_feeds > 10 %}
+            <a href="#10" class="button secondary radius tiny public-feeds-limit">10</a>
+        {% endif %}
+
+        {% if total_feeds >= 20 %}
+            <a href="#20" class="button secondary radius tiny public-feeds-limit">20</a>
+        {% endif %}
+
+        {% if total_feeds >= 30 %}
+            <a href="#30" class="button secondary radius tiny public-feeds-limit">30</a>
+        {% endif %}
+
+        {% if total_feeds > 10 %}
+            <a href="#all" class="button secondary radius tiny public-feeds-limit">All</a>
+        {% endif %}
+    </p>
+    <ul class="small-block-grid-1">
+        {% for feed in feeds %}
+            <li>{{ feed.getTitle() }} <a href="#{{ feed.getId() }}" class="right button tiny read-button radius">Read</a> </li>
         {% endfor %}
     </ul>
+</div>
 {% endif %}
 

@@ -72,7 +72,7 @@ class FeedRepository extends Repository
         $sql->execute(array($id));
 
         if ($sql->rowCount() === 0) {
-            throw new FeedIdNotFoundException();
+            throw new FeedIdNotFoundException(sprintf("Feed with id %s could not be found", $id));
         }
 
         return true;
@@ -81,15 +81,23 @@ class FeedRepository extends Repository
     /**
      * @param $id
      * @return mixed
+     * @throws \Rss\Exception\FeedIdNotFoundException
+     * @throws \InvalidArgumentException
      */
     public function getOne($id)
     {
+        if(!is_int($id)){
+            throw new \InvalidArgumentException("Must be an integer");
+        }
         $sql = $this->db->prepare('SELECT id, title, url, user_id FROM feeds WHERE id = :id LIMIT 1;');
-
-
         $sql->execute(array('id' => $id));
-        $sql->setFetchMode(\PDO::FETCH_CLASS, 'Rss\Model\Feed');
+        $sql->setFetchMode(\PDO::FETCH_CLASS, Feed::class);
         $feed = $sql->fetch();
+
+
+        if ($sql->rowCount() === 0) {
+            throw new FeedIdNotFoundException(sprintf("Feed with id %s could not be found", $id));
+        }
 
         return $feed;
     }
@@ -101,10 +109,16 @@ class FeedRepository extends Repository
      */
     public function getAllByUser(User $user, $limit = null)
     {
+
+        if($limit && !is_int($limit)){
+            throw new \InvalidArgumentException("Must be an integer");
+        }
+
         //check if user exists:
         $sql = $this->db->prepare('SELECT id FROM users WHERE id = :id LIMIT 1;');
         $sql->execute(array('id' => $user->getId()));
 
+        //If user does not exist, throw exception
         if (!$sql->fetch()) {
             throw new UserIdNotFoundException(sprintf("A user with the ID %s does not exist", $user->getId()));
         }
@@ -122,10 +136,15 @@ class FeedRepository extends Repository
     }
 
     /**
+     * @param null $limit
      * @return array
+     * @throws \InvalidArgumentException
      */
     public function getAll($limit = null)
     {
+        if($limit && !is_int($limit)){
+            throw new \InvalidArgumentException("Must be an integer");
+        }
         $results = $this->db->prepare('SELECT id, title, url, user_id FROM feeds ORDER BY date_added DESC;');
         $results->execute();
 

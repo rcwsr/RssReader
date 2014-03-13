@@ -1,0 +1,45 @@
+<div class="small-12 medium-6 columns">
+{% if feeds %}
+
+    <h2>My Feeds <small>{{ feeds|length }}/{{ total_feeds }}</small></h2>
+
+        <p>
+        {% if total_feeds > 10 %}
+            <a href="#10" class="button secondary radius tiny user-feeds-limit">10</a>
+        {% endif %}
+
+        {% if total_feeds >= 20 %}
+            <a href="#20" class="button secondary radius tiny user-feeds-limit">20</a>
+        {% endif %}
+
+        {% if total_feeds >= 30 %}
+            <a href="#30" class="button secondary radius tiny user-feeds-limit">30</a>
+        {% endif %}
+
+        {% if total_feeds > 10 %}
+            <a href="#all" class="button secondary radius tiny user-feeds-limit">All</a>
+        {% endif %}
+        </p>
+
+    <ul class="small-block-grid-1">
+        {% for feed in feeds %}
+            <li>{{ feed.getTitle() }}
+
+                <ul class="button-group radius right">
+                    <li>
+                        {% if user_id == feed.getUserId() %} <a href="#{{ feed.getId() }}" class="button tiny delete-button alert">Delete</a> {% endif %}
+                    </li>
+
+                    <li>
+                        <a href="#{{ feed.getId() }}" class="button tiny read-button">Read</a>
+                    </li>
+                </ul>
+
+            </li>
+        {% endfor %}
+    </ul>
+
+{% else %}
+    <h2 class="subheader">You haven't added any feeds yet!</h2>
+{% endif %}
+</div>

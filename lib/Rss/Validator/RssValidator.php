@@ -27,12 +27,17 @@ class RssValidator
      */
     public static function validateDoc($url)
     {
+
         $rss = new \DOMDocument();
-        if (!$rss->load($url, LIBXML_NOERROR)) {
+        $rss->strictErrorChecking = false;
+        $rss->recover = true;
+
+        if (!$rss->load($url, LIBXML_NOERROR|LIBXML_NOWARNING)) {
             return false;
         }
         if ($rss->getElementsByTagName('title')->item(0) instanceof \DOMNode) {
             if ($rss->getElementsByTagName('item')->item(0) instanceof \DOMNode) {
+
                 return $rss;
             }
         } else {
