@@ -10,38 +10,29 @@ use Rss\Controller\HomeController;
 
 $config = json_decode(file_get_contents(__DIR__ . '/config/config.json'), true);
 
-
+//Instantiate controllers
 $home_controller = new HomeController($config);
 $error_controller = new ErrorController($config);
 $ajax_controller = new AjaxController($config);
 
-
+//Load router
 $router = new Router();
 
+//Homepage
 $router->respond('GET', '/', function () use ($home_controller) {
     return $home_controller->indexGetAction();
-});
-
-$router->respond('POST', '/', function () use ($home_controller) {
-    return $home_controller->indexPostAction();
 });
 
 //Ajax
 $router->respond('POST', '/ajax/addfeed', function () use ($ajax_controller) {
     return $ajax_controller->addFeedAction();
 });
-
-
-
 $router->respond('POST', '/ajax/deletefeedcheck', function () use ($ajax_controller) {
     return $ajax_controller->deleteFeedConfirmationAction();
 });
-
 $router->respond('POST', '/ajax/deletefeed', function () use ($ajax_controller) {
     return $ajax_controller->deleteFeedAction();
 });
-
-
 $router->respond('GET', '/ajax/publicfeeds/[i:limit]', function ($request) use ($ajax_controller) {
     return $ajax_controller->loadPublicFeedsIncludeAction($request->limit);
 });
@@ -61,7 +52,15 @@ $router->respond('POST', '/ajax/getfeed', function () use ($ajax_controller) {
 
 
 $router->respond('404', function () use ($error_controller) {
-    return $error_controller->_404();
+    return $error_controller->errorAction(404, "Page could not be found");
+});
+
+$router->respond('403', function () use ($error_controller) {
+    return $error_controller->errorAction(404, "You are not authorised to visit this page");
+});
+
+$router->respond('500', function () use ($error_controller) {
+    return $error_controller->errorAction(404, "Something went wrong!");
 });
 
 $router->dispatch();

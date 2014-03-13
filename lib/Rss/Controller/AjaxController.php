@@ -23,12 +23,8 @@ class AjaxController extends Controller
                 $url = $_POST['url'];
 
                 if (RssValidator::validateUrl($url)) {
-                    try {
-                        $rss = RssValidator::validateDoc($url);
-                    } catch (\Exception $e) {
 
-                    }
-
+                    $rss = RssValidator::validateDoc($url);
 
                     if ($rss) {
 
@@ -173,7 +169,7 @@ class AjaxController extends Controller
                 $feed_id = $_POST['feed_id'];
 
                 if (is_numeric($feed_id)) {
-                    //TODO santise feed id
+
                     $feed_id = (int)$feed_id;
                     $feed_repo = new FeedRepository($this->config);
 
@@ -189,11 +185,10 @@ class AjaxController extends Controller
                     $items = array();
                     foreach ($items_raw as $it) {
                         $item = new Item();
-
-                        $item->setTitle($it->getElementsByTagName('title')->item(0)->nodeValue);
-                        $item->setDescription($it->getElementsByTagName('description')->item(0)->nodeValue);
-                        $item->setDate(\DateTime::createFromFormat(\DateTime::RSS, $it->getElementsByTagName('pubDate')->item(0)->nodeValue));
-                        $item->setLink($it->getElementsByTagName('link')->item(0)->nodeValue);
+                        $item->setTitle(RssValidator::validateTitle($it));
+                        $item->setDescription(RssValidator::validateDescription($it));
+                        $item->setDate(RssValidator::validateDate($it));
+                        $item->setLink(RssValidator::validateLink($it));
                         $items[] = $item;
                     }
                     $feed->setItems($items);

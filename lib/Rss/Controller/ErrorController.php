@@ -16,14 +16,9 @@ class ErrorController extends Controller
         parent::__construct($twig_path);
     }
 
-    public function _404()
+    public function errorAction($code, $message)
     {
-        return $this->twig->render('error.html.twig', array('error_code' => 404, 'message' => null));
+        return $this->twig->render('error.html.twig', array('error_code' => $code, 'message' => $message));
     }
 
-    public function _403()
-    {
-        header('HTTP/1.0 403 Forbidden');
-        return $this->twig->render('error.html.twig', array('error_code' => 404, 'message' => null));
-    }
 } 

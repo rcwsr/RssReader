@@ -63,10 +63,5 @@ class RssValidatorTest extends TestCase
         $this->assertFalse(RssValidator::validateDoc($url));
     }
 
-    public function testValidateDocWithNonRSSFeed3(){
-        $url = "http://www.1.com";
-        $this->assertFalse(RssValidator::validateDoc($url));
-    }
-
 
 } 

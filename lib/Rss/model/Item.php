@@ -27,7 +27,7 @@ class Item
     /**
      * @param mixed $date
      */
-    public function setDate(\DateTime $date)
+    public function setDate(\DateTime $date = null)
     {
         $this->date = $date;
         return $this;

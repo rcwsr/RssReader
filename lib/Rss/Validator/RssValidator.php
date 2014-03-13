@@ -1,14 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: robincawser
- * Date: 10/03/2014
- * Time: 18:33
- */
+
 
 namespace Rss\Validator;
 
-
+/**
+ * Class RssValidator
+ * @package Rss\Validator
+ */
 class RssValidator
 {
 
@@ -27,21 +25,98 @@ class RssValidator
      */
     public static function validateDoc($url)
     {
-
+        if(!RssValidator::validateUrl($url)){
+            return false;
+        }
         $rss = new \DOMDocument();
         $rss->strictErrorChecking = false;
         $rss->recover = true;
 
-        if (!$rss->load($url, LIBXML_NOERROR|LIBXML_NOWARNING)) {
+        if (!$rss->load($url, LIBXML_NOERROR | LIBXML_NOWARNING)) {
             return false;
         }
-        if ($rss->getElementsByTagName('title')->item(0) instanceof \DOMNode) {
-            if ($rss->getElementsByTagName('item')->item(0) instanceof \DOMNode) {
 
+        if ($rss->getElementsByTagName('rss')->item(0) instanceof \DOMNode) {
+            if ($rss->getElementsByTagName('item')->length > 0) {
                 return $rss;
             }
         } else {
             return false;
+        }
+    }
+
+    /**
+     * @param \DomElement $element
+     * @return null|string
+     */
+    public static function validateDescription(\DomElement $element)
+    {
+        $description = $element->getElementsByTagName('description');
+        if($description->length == 0){
+            return null;
+        }
+        else{
+            return $description->item(0)->nodeValue;
+        }
+    }
+
+    /**
+     * @param \DomElement $element
+     * @return \DateTime|null
+     */
+    public static function validateDate(\DomElement $element)
+    {
+
+        $pubdate = $element->getElementsByTagName('pubdate');
+
+        $namespace = 'http://purl.org/dc/elements/1.1/';
+        $date = $element->getElementsByTagNameNS($namespace, 'date');
+        if ($date->length == 0 && $pubdate->length == 0) {
+            return null;
+        }
+
+        if ($pubdate->length == 1) {
+            return \DateTime::createFromFormat(\DateTime::RSS, $pubdate->item(0)->nodeValue);
+        } elseif ($date->length == 1) {
+
+            return \DateTime::createFromFormat('Y-m-d', $date->item(0)->nodeValue);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @param \DomElement $element
+     * @return null|string
+     */
+    public static function validateTitle(\DomElement $element)
+    {
+        $title = $element->getElementsByTagName('title');
+        if($title->length == 0){
+            return null;
+        }
+        else{
+            return $title->item(0)->nodeValue;
+        }
+    }
+
+    /**
+     * @param \DomElement $element
+     * @return null|string
+     */
+    public static function validateLink(\DomElement $element)
+    {
+        $link = $element->getElementsByTagName('link');
+        if($link->length == 0){
+            return null;
+        }
+        else{
+            if(RssValidator::validateUrl($link->item(0)->nodeValue)){
+                return $link->item(0)->nodeValue;
+            }
+            else{
+                return null;
+            }
         }
     }
 

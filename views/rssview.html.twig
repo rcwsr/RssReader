@@ -4,7 +4,7 @@
 
     <hr>
     <h3><a href="{{ item.getLink() }}" target="_blank">{{ item.getTitle() }}</a></h3>
-    <p>Published: {{ item.getDate()|date("F jS \\a\\t g:ia") }}</p>
+    <p>Published: {{ item.getDate()|date() }}</p>
     <p>{{ item.getDescription()|striptags  }}</p>
 
 {% endfor %}
