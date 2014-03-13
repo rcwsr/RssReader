@@ -1,0 +1,8 @@
+To set up RssReader:
+    1. ensure you have Composer installed
+    2. run composer update to install dependencies
+    3. create a database user and a database
+    4. add tables to database using sql in database.txt
+    5. copy config.default.json to config.json, and update it's database configuration options
+    4. generate a new crypto secret string in config.json
+    6. set your web server to point to rss/web/index.php
