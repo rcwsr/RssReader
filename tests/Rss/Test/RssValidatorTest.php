@@ -49,7 +49,22 @@ class RssValidatorTest extends TestCase
     }
 
     public function testValidateDoc2(){
+        $url = "http://php.net/news.rss";
+        $this->assertInstanceOf('\DOMDocument', RssValidator::validateDoc($url));
+    }
+
+    public function testValidateDoc3(){
+        $url = "http://www.telegraph.co.uk/news/uknews/rss";
+        $this->assertInstanceOf('\DOMDocument', RssValidator::validateDoc($url));
+    }
+
+    public function testValidateDoc4(){
         $url = "http://feeds.feedburner.com/cyclingtipsblog/TJog?format=xml";
+        $this->assertInstanceOf('\DOMDocument', RssValidator::validateDoc($url));
+    }
+
+    public function testValidateDoc5(){
+        $url = "http://rss.slashdot.org/Slashdot/slashdot";
         $this->assertInstanceOf('\DOMDocument', RssValidator::validateDoc($url));
     }
 

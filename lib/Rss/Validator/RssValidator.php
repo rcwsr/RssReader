@@ -12,22 +12,17 @@ class RssValidator
 
     /**
      * @param $url
-     * @return bool
-     */
-    public static function validateUrl($url)
-    {
-        return (bool)filter_var($url, FILTER_VALIDATE_URL);
-    }
-
-    /**
-     * @param $url
      * @return bool|\DOMDocument
      */
     public static function validateDoc($url)
     {
-        if(!RssValidator::validateUrl($url)){
+        if (!RssValidator::validateUrl($url)) {
             return false;
         }
+
+        $validator = 'http://feedvalidator.org/check.cgi?url=';
+
+
         $rss = new \DOMDocument();
         $rss->strictErrorChecking = false;
         $rss->recover = true;
@@ -36,13 +31,24 @@ class RssValidator
             return false;
         }
 
-        if ($rss->getElementsByTagName('rss')->item(0) instanceof \DOMNode) {
-            if ($rss->getElementsByTagName('item')->length > 0) {
+        if ($rss->getElementsByTagName('channel')->length > 0 && $rss->getElementsByTagName('item')->length > 0) {
+
+
                 return $rss;
-            }
+
+
         } else {
             return false;
         }
+    }
+
+    /**
+     * @param $url
+     * @return bool
+     */
+    public static function validateUrl($url)
+    {
+        return (bool)filter_var($url, FILTER_VALIDATE_URL);
     }
 
     /**
@@ -52,10 +58,9 @@ class RssValidator
     public static function validateDescription(\DomElement $element)
     {
         $description = $element->getElementsByTagName('description');
-        if($description->length == 0){
+        if ($description->length == 0) {
             return null;
-        }
-        else{
+        } else {
             return $description->item(0)->nodeValue;
         }
     }
@@ -92,10 +97,9 @@ class RssValidator
     public static function validateTitle(\DomElement $element)
     {
         $title = $element->getElementsByTagName('title');
-        if($title->length == 0){
+        if ($title->length == 0) {
             return null;
-        }
-        else{
+        } else {
             return $title->item(0)->nodeValue;
         }
     }
@@ -107,14 +111,12 @@ class RssValidator
     public static function validateLink(\DomElement $element)
     {
         $link = $element->getElementsByTagName('link');
-        if($link->length == 0){
+        if ($link->length == 0) {
             return null;
-        }
-        else{
-            if(RssValidator::validateUrl($link->item(0)->nodeValue)){
+        } else {
+            if (RssValidator::validateUrl($link->item(0)->nodeValue)) {
                 return $link->item(0)->nodeValue;
-            }
-            else{
+            } else {
                 return null;
             }
         }
