@@ -2,7 +2,8 @@
     "require": {
         "phpunit/phpunit": "3.7.*",
         "twig/twig": "1.*",
-        "klein/klein": "dev-master"
+        "klein/klein": "dev-master",
+        "php": ">=5.5"
     },
 
     "autoload": {
