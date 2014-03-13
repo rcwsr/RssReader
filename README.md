@@ -43,3 +43,6 @@ CREATE TABLE `users` (
   UNIQUE KEY `hash` (`hash`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
+
+## Licence
+[Open source MIT licence](http://opensource.org/licenses/MIT)
