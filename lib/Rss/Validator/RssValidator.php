@@ -34,7 +34,7 @@ class RssValidator
         if ($rss->getElementsByTagName('channel')->length > 0 && $rss->getElementsByTagName('item')->length > 0) {
 
 
-                return $rss;
+            return $rss;
 
 
         } else {
@@ -100,6 +100,17 @@ class RssValidator
         if ($title->length == 0) {
             return null;
         } else {
+            return $title->item(0)->nodeValue;
+        }
+    }
+
+    public static function validateDocTitle(\DOMDocument $doc)
+    {
+        $title = $doc->getElementsByTagName('title');
+        if($title->length == 0) {
+            return false;
+        }
+        else{
             return $title->item(0)->nodeValue;
         }
     }
