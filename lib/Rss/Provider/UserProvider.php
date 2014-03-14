@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: robincawser
- * Date: 10/03/2014
- * Time: 19:19
- */
 
 namespace Rss\Provider;
 
@@ -15,12 +9,24 @@ use Rss\Exception\UserIdNotFoundException;
 use Rss\Model\User;
 use Rss\Repo\UserRepository;
 
+/**
+ * Class UserProvider
+ *
+ * This class provides the current user of the system. If no user is defined in the cookie, a new one will be created
+ * and added to the database.
+ *
+ * @package Rss\Provider
+ */
 class UserProvider
 {
     private $crypto;
     private $config;
-    private $user_config;
 
+    /**
+     * Creates encryption class and user repo upon instantiation
+     *
+     * @param $config Requires the config file in order to use Repository classes
+     */
     public function __construct($config)
     {
         $this->config = $config;
@@ -29,6 +35,7 @@ class UserProvider
     }
 
     /**
+     * Get's the user of the system, whether an already existing user or a newly created user
      * @return mixed|User
      */
     public function getUser()
@@ -55,6 +62,7 @@ class UserProvider
     }
 
     /**
+     * Creates a new user. If user already exists, it tries again!
      * @return User
      */
     private function createUser()
