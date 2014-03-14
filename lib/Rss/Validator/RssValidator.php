@@ -104,6 +104,10 @@ class RssValidator
         }
     }
 
+    /**
+     * @param \DOMDocument $doc
+     * @return bool|string
+     */
     public static function validateDocTitle(\DOMDocument $doc)
     {
         $title = $doc->getElementsByTagName('title');

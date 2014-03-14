@@ -6,7 +6,7 @@ namespace Rss\Controller;
  * Class Controller
  *
  * Abstract class that all controllers inherit. Loads config file from app.php and loads Twig so twig template
- * responses can be given.
+ * responses can be given -  Extending controllers then don't have to worry about loading config file or twig.
  *
  * @package Rss\Controller
  */
