@@ -1,0 +1,24 @@
+In order to best use the time that I had to spend on this project (without using a framework), I decided to use a router
+package and Twig, for templating my views. However, the structure of my project is inspired by frameworks such as Silex.
+
+The public facing directory, /web contains an index.php that includes the bootstrap file, /app.php. In here controllers
+are loaded alongside the parsing of the configuration file /config/config.php which contains database passwords etc.
+Controllers are passed to individual routes, where the relevant controller methods are called.
+
+I decided that the project itself would comprise only of a single page and allow the user to quickly add their RSS feeds.
+I also took a different approach to creating users. Instead of requiring users to register and login and to make it as
+simple as possible, this app instantly creates a user when the page is visited (storing no personal data, just an id,
+and a random 'user hash'), and stores an (encrypted) 'user hash' in a cookie. This has obvious disadvantages, such as
+only being able to use the app on one computer. Future work for the project would offer the user the ability to save
+their rss feeds to a more permanent service through, either registering an account, or even just entering their
+'user hash' to retrieve their feeds.
+
+When starting the project, I spent a lot of time writing tests to try and define how the project should function. I did
+find, however, that I had to go back and completely re-write some tests as my ideas evolved. Also, validating that an RSS
+feed was an RSS feed also took a lot of research because of the different types or standards of feed.
+
+In order to keep the user experience simple, I used AJAX to allow the user to add, browse, read or remove feeds on a
+single page without having it reload.
+
+Overall the project was completed within a week, but I hope it can be appreciated that I am approaching the end of my
+final year of study, so I had to use my time carefully in order to maintain other academic priorities.
