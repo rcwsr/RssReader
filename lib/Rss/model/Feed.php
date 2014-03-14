@@ -2,6 +2,11 @@
 
 namespace Rss\Model;
 
+/**
+ * Class Feed
+ * Class represents a feed. When a feed is displayed to a user, this class will contain a list of feed items
+ * @package Rss\Model
+ */
 class Feed extends Model
 {
     private $id;

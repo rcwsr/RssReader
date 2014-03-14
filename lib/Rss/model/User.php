@@ -1,6 +1,13 @@
 <?php
 namespace Rss\Model;
 
+/**
+ * Class User
+ *
+ * Class represents the user of the app. Contains an id and a uniqid.
+ *
+ * @package Rss\Model
+ */
 class User extends Model
 {
 

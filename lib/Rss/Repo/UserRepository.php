@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: robincawser
- * Date: 09/03/2014
- * Time: 15:20
- */
 
 namespace Rss\Repo;
 
@@ -14,6 +8,12 @@ use Rss\Exception\UserIdNotFoundException;
 use Rss\Model\Model;
 use Rss\Model\User;
 
+/**
+ * Class UserRepository
+ *
+ * Repo class to retrieve, add and delete Users from DB
+ * @package Rss\Repo
+ */
 class UserRepository extends Repository
 {
 

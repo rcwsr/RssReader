@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: robincawser
- * Date: 09/03/2014
- * Time: 15:20
- */
 
 namespace Rss\Repo;
 
@@ -15,6 +9,12 @@ use Rss\Model\Feed;
 use Rss\Model\Model;
 use Rss\Model\User;
 
+/**
+ * Class FeedRepository
+ *
+ * Repository class for RSS feeds. Allows insertion, retrieval and deletion of feeds from DB.
+ * @package Rss\Repo
+ */
 class FeedRepository extends Repository
 {
 

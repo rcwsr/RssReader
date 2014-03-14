@@ -4,6 +4,9 @@ namespace Rss;
 
 /**
  * Class Crypto
+ *
+ * This is a class I previously created for a university assignment. It allows for encrypting and decrypting of a string
+ *
  * @package Rss
  */
 class Crypto

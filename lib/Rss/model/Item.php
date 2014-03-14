@@ -1,14 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: robincawser
- * Date: 11/03/2014
- * Time: 19:19
- */
 
 namespace Rss\Model;
 
-
+/**
+ * Class Item
+ * Represents an item of a feed, contains a title, date, link and description (content)
+ * @package Rss\Model
+ */
 class Item
 {
     private $title;

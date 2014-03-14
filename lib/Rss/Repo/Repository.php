@@ -1,18 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: robincawser
- * Date: 09/03/2014
- * Time: 15:13
- */
 
 namespace Rss\Repo;
+
 
 use Rss\Database;
 use Rss\Model\Model;
 
 /**
  * Class Repository
+ *
+ * Abstract repository class. Upon construction loads the database PDO object so that extending Repo classes don't
+ * need to. Provides abstract methods that other repos must implement. Upon destruction of object, PDO is nullified.
+ *
  * @package Rss\Repo
  */
 abstract class Repository
