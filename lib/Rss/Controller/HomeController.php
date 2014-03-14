@@ -11,12 +11,22 @@ use Rss\Provider\UserProvider;
 use Rss\Repo\FeedRepository;
 use Rss\Repo\UserRepository;
 
+/**
+ * Class HomeController
+ *
+ * Handles loading the homepage of the system. Simply loads the index twig template which in turn loads feeds through
+ * ajax calls.
+ *
+ * @package Rss\Controller
+ */
 class HomeController extends Controller
 {
 
 
     /**
-     * @return string
+     * Loads the current user when app homepage is loaded. returns index.html.twig template
+     *
+     * @return string twig template
      */
     public function indexGetAction()
     {
@@ -25,18 +35,6 @@ class HomeController extends Controller
         $user_provider = new UserProvider($this->config);
         $user = $user_provider->getUser();
 
-        $feed_repo = new FeedRepository($this->config);
-
-        //Get public and user feeds
-
-
-        $public_feeds = $feed_repo->getAll();
-        $user_feeds = $feed_repo->getAllByUser($user);
-        $total_user_feeds = count($user_feeds);
-        $total_public_feeds = count($public_feeds);
-
-        $user_feeds = array_slice($user_feeds, 0, 10);
-        $public_feeds = array_slice($public_feeds, 0, 10);
 
 
         return $this->twig->render('index.html.twig', array(
@@ -45,7 +43,11 @@ class HomeController extends Controller
     }
 
 
-
+    /**
+     * If the index is accessed via POST, an error message is displayed asking the user to enable JS.
+     *
+     * @return string error message
+     */
     public function indexPostAction()
     {
         return "Please enable javascript";
